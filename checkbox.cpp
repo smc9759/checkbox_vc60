@@ -15,7 +15,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance
 	
 	WndClass.cbClsExtra=0;
 	WndClass.cbWndExtra=0;
-	WndClass.hbrBackground=(HBRUSH)GetStockObject(WHITE_BRUSH);
+	WndClass.hbrBackground=(HBRUSH)GetStockObject(LTGRAY_BRUSH);
 	WndClass.hCursor=LoadCursor(NULL,IDC_ARROW);
 	WndClass.hIcon=LoadIcon(NULL,IDI_APPLICATION);
 	WndClass.hInstance=hInstance;
@@ -49,6 +49,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 {
 	HDC hdc;
 	PAINTSTRUCT ps;
+	HBRUSH MyBrush, OldBrush;
 	switch(iMessage) {
 	case WM_CREATE:
 		return 0;
