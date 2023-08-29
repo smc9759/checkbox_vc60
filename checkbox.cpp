@@ -74,6 +74,8 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		r6=CreateWindow("button","Blue",WS_CHILD | WS_VISIBLE | 
 			BS_AUTORADIOBUTTON,
 			150,80,100,30,hWnd,(HMENU)ID_R6,g_hInst,NULL);
+		CheckRadioButton(hWnd, ID_R1, ID_R3, ID_R1);
+		CheckRadioButton(hWnd, ID_R4, ID_R6, ID_R4);
 		break;
 	case WM_PAINT:
 		hdc=BeginPaint(hWnd, &ps);
