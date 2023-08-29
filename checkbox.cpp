@@ -103,8 +103,34 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		}
 		return 0;
 	case WM_PAINT:
-		hdc=BeginPaint(hWnd, &ps);
-		EndPaint(hWnd, &ps);
+		hdc=BeginPaint(hWnd,&ps);
+		switch (COLOR) {
+		case 0:
+			MyBrush=CreateSolidBrush(RGB(0,0,0));
+			break;
+		case 1:
+			MyBrush=CreateSolidBrush(RGB(255,0,0));
+			break;
+		case 2:
+			MyBrush=CreateSolidBrush(RGB(0,0,255));
+			break;
+		}
+		OldBrush=(HBRUSH)SelectObject(hdc,MyBrush);
+		switch (GRAPH) {
+		case 0:
+			Rectangle(hdc,10,200,200,300);
+			break;
+		case 1:
+			Ellipse(hdc,10,200,200,300);
+			break;
+		case 2:
+			MoveToEx(hdc,10,200,NULL);
+			LineTo(hdc,200,300);
+			break;
+		}
+		SelectObject(hdc,OldBrush);
+		DeleteObject(MyBrush);
+		EndPaint(hWnd,&ps);
 		return 0;
 	case WM_DESTROY:
 		PostQuitMessage(0);
