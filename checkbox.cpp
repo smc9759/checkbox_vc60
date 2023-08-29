@@ -36,7 +36,15 @@ int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance
 	}
 	return Message.wParam;
 }
-
+#define ID_R1 101
+#define ID_R2 102
+#define ID_R3 103
+#define ID_R4 104
+#define ID_R5 105
+#define ID_R6 106
+HWND r1,r2,r3,r4,r5,r6;
+int GRAPH=0;
+int COLOR=0;
 LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 {
 	HDC hdc;
