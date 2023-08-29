@@ -77,6 +77,31 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		CheckRadioButton(hWnd, ID_R1, ID_R3, ID_R1);
 		CheckRadioButton(hWnd, ID_R4, ID_R6, ID_R4);
 		break;
+	case WM_COMMAND:
+		if (HIWORD(wParam) == BN_CLICKED) {
+			switch (LOWORD(wParam)) {
+			case ID_R1:
+				GRAPH=0;
+				break;
+			case ID_R2:
+				GRAPH=1;
+				break;
+			case ID_R3:
+				GRAPH=2;
+				break;
+			case ID_R4:
+				COLOR=0;
+				break;
+			case ID_R5:
+				COLOR=1;
+				break;
+			case ID_R6:
+				COLOR=2;
+				break;
+			}
+			InvalidateRect(hWnd, NULL, TRUE);
+		}
+		return 0;
 	case WM_PAINT:
 		hdc=BeginPaint(hWnd, &ps);
 		EndPaint(hWnd, &ps);
