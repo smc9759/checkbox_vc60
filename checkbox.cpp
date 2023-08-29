@@ -52,6 +52,8 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 	HBRUSH MyBrush, OldBrush;
 	switch(iMessage) {
 	case WM_CREATE:
+		CreateWindow("static","Only Text",WS_CHILD | WS_VISIBLE,
+			20,20,100,25,hWnd,(HMENU)-1,g_hInst,NULL);
 		CreateWindow("button","Graph",WS_CHILD | WS_VISIBLE | 
 			BS_GROUPBOX,5,5,120,110,hWnd,(HMENU)0,g_hInst,NULL);
 		CreateWindow("button","Color",WS_CHILD | WS_VISIBLE | 
